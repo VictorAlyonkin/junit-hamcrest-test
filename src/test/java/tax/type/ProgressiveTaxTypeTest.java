@@ -3,12 +3,12 @@ package tax.type;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.hamcrest.MatcherAssert;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 public class ProgressiveTaxTypeTest {
-    ProgressiveTaxType sut;
+    private ProgressiveTaxType sut;
 
     @BeforeEach
     public void beforeInit() {
@@ -23,13 +23,14 @@ public class ProgressiveTaxTypeTest {
     @Test
     public void calculateTaxForLess100_000() {
         double expected = 10;
-        double asd = sut.calculateTaxFor(100);
-        assertEquals(expected, asd);
+        double rslt = sut.calculateTaxFor(100);
+        assertThat(expected, is(equalTo(rslt)));
     }
+
     @Test
     public void calculateTaxForMore100_000() {
         double expected = 300_000;
-        double asd = sut.calculateTaxFor(2_000_000);
-        assertEquals(expected, asd);
+        double rslt = sut.calculateTaxFor(2_000_000);
+        assertThat(expected, is(equalTo(rslt)));
     }
 }

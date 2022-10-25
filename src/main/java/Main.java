@@ -7,7 +7,7 @@ import tax.type.VATaxType;
 public class Main {
     public static void main(String[] args) {
         TaxService taxService = new TaxService();
-        Bill[] payments = new Bill[] {
+        Bill[] payments = new Bill[]{
                 // создание платежей с различным типами налогообложения
                 new Bill(200, new TaxType(), taxService),
                 new Bill(200, new IncomeTaxType(), taxService),
